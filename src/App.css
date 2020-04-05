@@ -1,10 +1,64 @@
+/*Overall app styling BEGINS*/
+.app-container {
+  margin: 0 auto;
+  width: 90%;
+}
+/*Overall app styling ENDS*/
+
+/*Custom table styling BEGINS*/
+.app-table .column-center {
+  display: flex;
+  justify-content: center;
+}
+
+.ReactTable {
+  border: none !important;
+}
+
+.ReactTable .rt-thead.-header {
+  box-shadow: none !important;
+  border-bottom: solid 1px #e4e4e4;
+  opacity: 0.5;
+  font-weight: bold;
+}
+
+.ReactTable .rt-tbody .rt-tr-group,
+.ReactTable .rt-thead .rt-th,
+.ReactTable .rt-thead .rt-td,
+.ReactTable .rt-tbody .rt-td {
+  border: none !important;
+}
+/*Custom table styling ENDS*/
+
+.app-dialog .close-dialog {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  width: 100%;
+}
+
 .form-field-error {
   color: red;
 }
+
 .field {
   margin: 10px !important;
 }
+
 .submit-button {
   float: right;
   margin: 20px 20px 0 0 !important;;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.generic-form {
+  min-width: 500px;
+}
+
+.form-title {
+  font-size: 22px;
+  /*padding: 30px 0 0 30px;*/
 }
