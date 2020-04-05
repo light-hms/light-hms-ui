@@ -1,12 +1,12 @@
 import React from "react";
 import {withFormik} from "formik";
-import TextField from "../Common/FormikFields/TextField";
+import TextField from "../common/formikFields/TextField";
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import SubmitButton from "../Common/SubmitButton";
+import SubmitButton from "../common/SubmitButton";
 
 const Form = (props) => {
   const {values, handleSubmit, handleChange} = props;

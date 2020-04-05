@@ -2,7 +2,7 @@ import React from 'react';
 
 const DoctorsListingPage = () => (
   <div>
-    Doctor listing page
+    Doctors listing page
   </div>
 );
 
