@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Switch } from 'react-router';
-import PatientsRouter from './components/PatientsRouter';
+import PatientsRouter from './components/Patients/PatientsRouter';
 import DoctorsRouter from './components/DoctorsRouter';
 import HomePage from './components/HomePage';
 
