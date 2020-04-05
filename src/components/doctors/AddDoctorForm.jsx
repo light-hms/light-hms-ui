@@ -6,6 +6,7 @@ import SubmitButton from "../common/SubmitButton";
 const FormikForm = (props) => {
   const {values, handleSubmit, handleChange} = props;
   const {id, name, designation, speciality, team, shift} = values;
+
   return (
     <div className="generic-form">
       <div className="form-title">
