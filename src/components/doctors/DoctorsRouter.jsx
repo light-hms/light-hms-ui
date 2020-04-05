@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, useRouteMatch } from "react-router";
-import CreateDoctorPage from "./CreateDoctorPage";
+import AddDoctorPage from "./AddDoctorPage";
 import DoctorsListingPage from "./DoctorsListingPage";
 
 const DoctorsRouter = () => {
@@ -8,7 +8,7 @@ const DoctorsRouter = () => {
 
   return (
     <Switch>
-      <Route path={`${path}/create`} exact component={CreateDoctorPage}/>
+      <Route path={`${path}/add`} exact component={AddDoctorPage}/>
       <Route path={`${path}`} component={DoctorsListingPage}/>
     </Switch>
   );

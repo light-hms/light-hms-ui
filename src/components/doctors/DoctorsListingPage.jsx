@@ -1,36 +1,48 @@
 import React from 'react';
 import Table from "../common/Table";
+import AddDoctorButton from "./AddDoctorButton";
+import Button from "@material-ui/core/Button";
 
 const columns = [
   {
     Header: 'Doctor ID',
     accessor: 'id',
-    filterable: false,
   },
   {
     Header: 'Name',
     accessor: 'name',
-    filterable: false,
   },
   {
     Header: 'Speciality',
     accessor: 'speciality',
-    filterable: false,
   },
   {
     Header: 'Designation',
     accessor: 'designation',
-    filterable: false,
   },
   {
     Header: 'Team',
     accessor: 'team',
-    filterable: false,
   },
   {
     Header: 'Shift',
     accessor: 'shift',
-    filterable: false,
+  },
+  {
+    accessor: 'id',
+    maxWidth: 80,
+    Cell: ({value: id}) => {
+      return (
+        <Button
+          color="secondary"
+          onClick={() => {
+            console.log(`Deleting ${id}`)
+          }}
+        >
+          DELETE
+        </Button>
+      );
+    }
   }
 ];
 
@@ -78,10 +90,13 @@ const data = [
 ];
 
 const DoctorsListingPage = () => (
-  <Table
-    columns={columns}
-    data={data}
-  />
+  <>
+    <AddDoctorButton/>
+    <Table
+      columns={columns}
+      data={data}
+    />
+  </>
 );
 
 export default DoctorsListingPage;
