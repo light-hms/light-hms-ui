@@ -1,7 +1,34 @@
+/*Overall app styling BEGINS*/
 .app-container {
   margin: 0 auto;
   width: 90%;
 }
+/*Overall app styling ENDS*/
+
+/*Custom table styling BEGINS*/
+.app-table .column-center {
+  display: flex;
+  justify-content: center;
+}
+
+.ReactTable {
+  border: none !important;
+}
+
+.ReactTable .rt-thead.-header {
+  box-shadow: none !important;
+  border-bottom: solid 1px #e4e4e4;
+  opacity: 0.5;
+  font-weight: bold;
+}
+
+.ReactTable .rt-tbody .rt-tr-group,
+.ReactTable .rt-thead .rt-th,
+.ReactTable .rt-thead .rt-td,
+.ReactTable .rt-tbody .rt-td {
+  border: none !important;
+}
+/*Custom table styling ENDS*/
 
 .form-field-error {
   color: red;
