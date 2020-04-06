@@ -2,10 +2,13 @@ import React from "react";
 import { withFormik } from "formik";
 import TextField from "../common/formikFields/TextField";
 import SubmitButton from "../common/SubmitButton";
+import DatePicker from "../common/formikFields/DatePicker";
+import MultiSelectDropDown from "../common/formikFields/MultiSelectDropDown";
 
 const FormikForm = (props) => {
   const {values, handleSubmit, handleChange} = props;
-  const {id, name, designation, speciality, team, shift} = values;
+  const {code, person, designation, specialties, team, shift} = values;
+  const {firstName, lastName, dateOfBirth, phoneNumber } = person;
 
   return (
     <div className="generic-form">
@@ -15,14 +18,32 @@ const FormikForm = (props) => {
       <form onSubmit={handleSubmit}>
         <TextField
           label="Doctor ID"
-          name="id"
-          value={id}
+          name="code"
+          value={code}
           onChange={handleChange}
         />
         <TextField
-          label="Name"
-          name="name"
-          value={name}
+          label="First Name"
+          name="person.firstName"
+          value={firstName}
+          onChange={handleChange}
+        />
+        <TextField
+          label="Last Name"
+          name="person.lastName"
+          value={lastName}
+          onChange={handleChange}
+        />
+        <DatePicker
+          label="Date of birth"
+          name="person.dateOfBirth"
+          value={dateOfBirth}
+          onChange={handleChange}
+        />
+        <TextField
+          label="Phone Number"
+          name="person.phoneNumber"
+          value={phoneNumber}
           onChange={handleChange}
         />
         <TextField
@@ -31,11 +52,13 @@ const FormikForm = (props) => {
           value={designation}
           onChange={handleChange}
         />
-        <TextField
+        <MultiSelectDropDown
           label="Speciality"
-          name="speciality"
-          value={speciality}
+          name="specialties"
+          value={specialties}
           onChange={handleChange}
+          options={[]}
+          freeSolo
         />
         <TextField
           label="Team"

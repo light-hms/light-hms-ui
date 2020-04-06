@@ -9,7 +9,7 @@ export default function TextField(props) {
       <MaterialUiTextField
         fullWidth
         {...props}
-        className={`field ${className || ''}`}
+        className={className || 'field'}
       />
       <Error name={name}/>
     </>

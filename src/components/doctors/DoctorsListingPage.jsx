@@ -2,19 +2,22 @@ import React from 'react';
 import Table from "../common/Table";
 import AddDoctorButton from "./AddDoctorButton";
 import Button from "@material-ui/core/Button";
+import useDoctorsApi from "./DoctorsApi";
 
 const columns = [
   {
     Header: 'Doctor ID',
-    accessor: 'id',
+    accessor: 'code',
   },
   {
     Header: 'Name',
-    accessor: 'name',
+    accessor: 'person',
+    Cell: ({value: person}) =>  `${person.firstName} ${person.lastName}`
   },
   {
     Header: 'Speciality',
-    accessor: 'speciality',
+    accessor: 'specialities',
+    Cell: ({value: specialities}) =>  specialities.join(" ,")
   },
   {
     Header: 'Designation',
@@ -45,58 +48,23 @@ const columns = [
     }
   }
 ];
+const {useEffect, useState} = React;
 
-const data = [
-  {
-    id: '12324',
-    name: 'John Smith',
-    speciality: 'Neurosurgeon',
-    designation: 'Neurosurgeon',
-    team: 'Team ABC',
-    shift: '9AM-5PM'
-  },
-  {
-    id: '12324',
-    name: 'John Smith',
-    speciality: 'Neurosurgeon',
-    designation: 'Neurosurgeon',
-    team: 'Team ABC',
-    shift: '9AM-5PM'
-  },
-  {
-    id: '12324',
-    name: 'John Smith',
-    speciality: 'Neurosurgeon',
-    designation: 'Neurosurgeon',
-    team: 'Team ABC',
-    shift: '9AM-5PM'
-  },
-  {
-    id: '12324',
-    name: 'John Smith',
-    speciality: 'Neurosurgeon',
-    designation: 'Neurosurgeon',
-    team: 'Team ABC',
-    shift: '9AM-5PM'
-  },
-  {
-    id: '12324',
-    name: 'John Smith',
-    speciality: 'Neurosurgeon',
-    designation: 'Neurosurgeon',
-    team: 'Team ABC',
-    shift: '9AM-5PM'
-  },
-];
-
-const DoctorsListingPage = () => (
-  <>
-    <AddDoctorButton/>
-    <Table
-      columns={columns}
-      data={data}
-    />
-  </>
-);
+const DoctorsListingPage = () => {
+  const {getDoctors} = useDoctorsApi();
+  const [doctors, updateDoctorsList] = useState([]);
+  useEffect(() => {
+    getDoctors().then(response => updateDoctorsList(response._embedded.doctors));
+  },[]);
+  return (
+    <>
+      <AddDoctorButton/>
+      <Table
+        columns={columns}
+        data={doctors}
+      />
+    </>
+  );
+};
 
 export default DoctorsListingPage;
